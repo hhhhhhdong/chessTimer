@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/4c6f324213.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./app.js" defer></script>
+    <title>CHESS TIMER</title>
+  </head>
+  <body>
+    <div id="wrap">
+      <div data-team="white" class="timer white">
+        <span class="center"></span>
+      </div>
+      <div id="setting">
+        <div class="reset whiteColor">
+          <i class="fas fa-redo center"></i>
+        </div>
+        <div class="pause gray">
+          <i class="fas fa-pause center"></i>
+        </div>
+        <div class="time whiteColor">
+          <div class="plus">
+            <i class="fas fa-plus center"></i>
+          </div>
+          <div class="minus">
+            <i class="fas fa-minus center"></i>
+          </div>
+        </div>
+      </div>
+      <div data-team="black" class="timer black">
+        <span class="center"></span>
+      </div>
+    </div>
+  </body>
+</html>
