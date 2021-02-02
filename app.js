@@ -9,6 +9,8 @@ const minusDiv = setting.querySelector(".minus");
 const pauseDiv = setting.querySelector(".pause");
 const pauseIcon = pauseDiv.querySelector("i");
 const resetDiv = setting.querySelector(".reset");
+const whiteMoveP = white.querySelector("p");
+const blackMoveP = black.querySelector("p");
 
 let isStarted = false;
 let blackTurn = false;
@@ -20,6 +22,8 @@ let blackInterval;
 let whiteInterval;
 let isPaused = false;
 let nowTurn;
+let whiteMove = 0;
+let blackMove = 0;
 
 const showTime = (span, time) => {
   let min = Math.floor(Math.abs(time) / 60);
@@ -47,12 +51,17 @@ const onClickWhite = (e) => {
     timeDiv.classList.add("gray");
     pauseDiv.classList.remove("gray");
     pauseDiv.classList.add("whiteColor");
+
     blackTime = initTime;
     whiteTime = initTime;
     isStarted = true;
   }
   whiteTurn = false;
   blackTurn = true;
+  white.classList.remove("whiteBorder");
+  black.classList.add("whiteBorder");
+  whiteMove += 1;
+  whiteMoveP.innerHTML = `${whiteMove} move`;
   whiteInterval && clearInterval(whiteInterval);
   blackInterval = setInterval(() => {
     blackTime--;
@@ -74,6 +83,10 @@ const onClickBlack = (e) => {
   }
   whiteTurn = true;
   blackTurn = false;
+  white.classList.add("whiteBorder");
+  black.classList.remove("whiteBorder");
+  blackMove += 1;
+  blackMoveP.innerHTML = `${blackMove} move`;
   blackInterval && clearInterval(blackInterval);
   whiteInterval = setInterval(() => {
     whiteTime--;
@@ -131,12 +144,18 @@ const onClickReset = () => {
   timeDiv.className = "time whiteColor";
   pauseDiv.className = "pause gray";
   pauseIcon.className = "fas fa-pause center";
+  white.classList.remove("whiteBorder");
+  black.classList.remove("whiteBorder");
   nowTurn = "";
   isStarted = false;
   isPaused = false;
   whiteTurn = false;
   blackTurn = false;
   initTime = 600;
+  whiteMove = 0;
+  blackMove = 0;
+  whiteMoveP.innerHTML = `${whiteMove} move`;
+  blackMoveP.innerHTML = `${blackMove} move`;
   whiteInterval && clearInterval(whiteInterval);
   blackInterval && clearInterval(blackInterval);
   showTime(whiteSpan, initTime);
