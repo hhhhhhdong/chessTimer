@@ -124,8 +124,7 @@ a:hover {
 }
 
 .time div {
-  width: 100%;
-  max-width: 3em;
+  width: 2.9em;
   height: 100%;
   position: relative;
 }

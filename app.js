@@ -58,6 +58,7 @@ const onClickWhite = (e) => {
     whiteTime = initTime;
     isStarted = true;
   }
+  clickSound.pause();
   clickSound.currentTime = 0;
   clickSound.play();
   whiteTurn = false;
@@ -85,6 +86,7 @@ const onClickBlack = (e) => {
     blackTime = initTime;
     isStarted = true;
   }
+  clickSound.pause();
   clickSound.currentTime = 0;
   clickSound.play();
   whiteTurn = true;
