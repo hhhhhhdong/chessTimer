@@ -1,3 +1,5 @@
+const clickSound = new Audio("./CLICK1.wav");
+
 const wrap = document.querySelector("#wrap");
 const setting = wrap.querySelector("#setting");
 const [white, black] = wrap.querySelectorAll(".timer");
@@ -56,6 +58,7 @@ const onClickWhite = (e) => {
     whiteTime = initTime;
     isStarted = true;
   }
+  clickSound.play();
   whiteTurn = false;
   blackTurn = true;
   white.classList.remove("whiteBorder");
@@ -81,6 +84,7 @@ const onClickBlack = (e) => {
     blackTime = initTime;
     isStarted = true;
   }
+  clickSound.play();
   whiteTurn = true;
   blackTurn = false;
   white.classList.add("whiteBorder");
